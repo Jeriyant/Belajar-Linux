@@ -1,0 +1,7 @@
+Cara Supaya File Explorer Bisa Akses Secara Root Ubuntu
+
+1. Install Nautilus Admin
+sudo apt install nautilus-admin
+
+2. Untuk Mererstart Nautilus File Manager
+sudo nautilus -q
