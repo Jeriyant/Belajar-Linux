@@ -1,0 +1,8 @@
+1. Buka terminal
+
+2. Masukkan perintah: 
+sudo apt-get remove --purge libreoffice*
+
+3. Kemudian masukkan lagi di terminal dengan perintah: 
+sudo apt-get clean
+sudo apt-get autoremove
