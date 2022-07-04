@@ -1,0 +1,8 @@
+1.Tambah Repository
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ focal main'
+
+2. Update Repository
+sudo apt update
+
+3. Install Wineq
+sudo apt install --install-recommends winehq-stable
