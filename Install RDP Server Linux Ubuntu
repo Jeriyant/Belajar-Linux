@@ -1,0 +1,28 @@
+Cara Install RDP Server Ubuntu
+
+1. Install Xrdp
+sudo apt update
+sudo apt install xrdp
+
+2. Mengaktifkan fitur Rdp
+sudo systemctl enable --now xrdp
+
+3. Mengatur Firewall Agar Bisa Remote RDP
+sudo ufw allow from any to any port 3389 proto tcp
+
+4.Cek Alamat IP PC
+ifconfig
+
+5. Cek User
+cat /etc/passwd
+
+6. Membuat User
+sudo adduser namauser
+
+7. Menambah User privilege di visudo
+# User privilege specification
+root    	ALL=(ALL:ALL) ALL
+namauser 	ALL=(ALL:ALL) ALL
+
+8. Silakan test Remote dengan RDP
+
