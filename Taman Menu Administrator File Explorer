@@ -1,0 +1,3 @@
+cara supaya file explorer linux akses secara root
+
+sudo apt install nautilus-admin
