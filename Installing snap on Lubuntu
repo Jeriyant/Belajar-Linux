@@ -1,0 +1,7 @@
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo snap install hello-world
+hello-world 6.3 from Canonical✓ installed
+$ hello-world
+Hello World!
+sudo snap install snap-store
