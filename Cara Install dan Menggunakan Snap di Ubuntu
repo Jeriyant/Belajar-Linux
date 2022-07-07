@@ -1,0 +1,39 @@
+Cara Install dan Menggunakan Snap di Ubuntu
+
+1. Install Snap
+sudo apt update
+sudo apt install snapd
+
+2. Mencari aplikasi
+snap find [keyword]
+
+3. Melihat informasi aplikasi
+snap info [nama-aplikasi]
+
+4. Menginstall aplikasi
+sudo snap install [nama-aplikasi]
+
+5. Install Berdasarkan Channel
+sudo snap install --channel=stable [nama-aplikasi]
+
+6. Melihat daftar aplikasi yang terinstall
+snap list
+
+7. Melihat Update aplikasi
+sudo snap refresh --list
+
+8. Update Semua Aplikasi
+sudo snap refresh
+
+9. Untuk Update Aplikasi Tertentu
+sudo snap refresh [nama-aplikasi]
+
+
+10. Downgrade aplikasi
+sudo snap revert [nama-aplikasi]
+
+11. Uninstall aplikasi
+sudo snap remove [nama-aplikasi]
+
+12. Cara Uninstall Snap
+sudo apt remove --purge snap && sudo apt autoremove
