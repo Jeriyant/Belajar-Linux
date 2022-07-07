@@ -1,0 +1,14 @@
+AnyDesk software offers official repositories for Linux operating systems. Follow the below steps to set up the repository.
+
+1. First, download and add the GPG key to your system.
+wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add -
+
+2.Then, add the AnyDesk repository.
+echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list
+
+
+3.First, update the repository index.
+sudo apt update
+
+4. And then, install the AnyDesk package with the below command.
+sudo apt install -y anydesk
