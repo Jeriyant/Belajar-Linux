@@ -9,8 +9,10 @@ sudo systemctl enable --now xrdp
 
 3. Mengatur Firewall Agar Bisa Remote RDP
 sudo ufw allow from any to any port 3389 proto tcp
+sudo install gufw
 
 4.Cek Alamat IP PC
+apt install net-tools
 ifconfig
 
 5. Cek User
@@ -25,4 +27,3 @@ root    	ALL=(ALL:ALL) ALL
 namauser 	ALL=(ALL:ALL) ALL
 
 8. Silakan test Remote dengan RDP
-
