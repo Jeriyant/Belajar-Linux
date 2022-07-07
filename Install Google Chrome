@@ -1,0 +1,7 @@
+1. Download Package Chrome bisa via situs Resmi atau dengan perintah berikut :
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+
+2.Arahkan folder terminal ke lokasi file .deb lalu eksekusi perintah berikut
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+Selengkapnya di https://itsfoss.com/install-chrome-ubuntu/
