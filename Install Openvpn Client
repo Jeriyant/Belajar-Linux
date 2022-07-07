@@ -1,0 +1,12 @@
+Cara Install Openvpn Client
+
+1. Buka Terminal dan instal OpenVPN dengan perintah berikut:
+sudo apt-get install openvpn network-manager-openvpn network-manager-openvpn-gnome
+
+2. Settings - Network
+3. Pada Bagian VPN Piliha Tambah +
+4. Selanjutnya Pilih Import From File...
+5. Cari Lokasi Configurasi File config.ovpn
+6. Dobel Klik dan Pilih Add
+7. Sampai disini anda tinggal on/off kan openvpn anda
+8. Untuk pengujian anda dapat melakukan ping ke server openvpn tersebut atau dengan perintah ifconfig dan pastikan interface tun0 sudah mendapatkan alamat ip
