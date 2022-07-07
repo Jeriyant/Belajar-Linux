@@ -1,0 +1,15 @@
+Cara Uninstall Firefox
+
+1. Cek Tipe Firefox di Ubuntu Anda
+type firefox
+
+2. Cocokan Dengan Ini
+firefox is /usr/bin/firefox 	apt
+firefox is /snap/bin/firefox 	snap
+
+3. Jika Berjenis apt Uninstall dengan perintah berikut
+sudo su
+apt-get purge firefox && rm -r /etc/firefox && rm -r /usr/lib/firefox && rm -r /usr/lib/firefox-addons && apt clean && apt autoremove
+
+4. Jika Berjenis snap Uninstall Dengan Perintah Berikut
+sudo snap remove firefox
