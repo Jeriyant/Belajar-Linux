@@ -1,0 +1,17 @@
+1. Update Repository
+sudo apt update
+
+2. Install Openssh Server
+sudo apt install openssh-server
+
+3. Cek Status SSHnya Apakah Sudah Jalan atau Belum
+sudo systemctl status ssh
+
+4.  Setting Firewall untuk mengizinkan ssh
+sudo ufw allow ssh
+
+5.  Cek Alamat IP
+ifconfig
+ip a
+
+6. Silakan Testing ssh dari perangkat lain
