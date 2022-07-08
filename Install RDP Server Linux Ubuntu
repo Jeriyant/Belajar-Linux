@@ -29,10 +29,11 @@ cat /etc/passwd
 sudo adduser namauser
 
 7. Mengubah Password User
+sudo passwd namauser
 
 7. Menambah User privilege di visudo
 # User privilege specification
 root    	ALL=(ALL:ALL) ALL
 namauser 	ALL=(ALL:ALL) ALL
 
-8. Silakan test Remote dengan RDP
+8. Silakan Test Remote dengan RDP dari Perangkat Lain
