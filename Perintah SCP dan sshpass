@@ -1,0 +1,5 @@
+sshpass -p "*J4Y4-020*" scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
+
+sshpass -f "/home/jeriyant/password" scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
+
+scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
