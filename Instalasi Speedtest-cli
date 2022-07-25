@@ -1,0 +1,26 @@
+Instalasi Speedtest-cli
+
+1. Sebelum melakukan instalasi paket speedtest-cli pastikan sistem operasi anda sudah terintall paket python3. Jika belum terinstall silahkan jalankan perintah dibawah ini.
+
+Debian/Ubuntu
+sudo apt-get install python3-pip
+
+Centos 7
+sudo yum install centos-release-scl
+sudo yum install rh-python36
+scl enable rh-python36 bash
+
+2. Setelah paket python3 berhasil anda install, selanjutnya masuk ke proses instalasi speedtest-cli. Jalankan perintah berikut untuk sistem operasi 
+
+Debian/Ubuntu/Centos 7:
+sudo pip3 install speedtest-cli
+
+3. Untuk proses ini tidak membutuhkan waktu yang lama, dan speedtest-cli anda sudah dapat digunakan.
+
+4. Untuk melihat detail perintah dan option apa saja yang bisa digunakan bisa menggunakan perintah:
+speedtest-cli --help
+
+5. Untuk melakukan pengujian kecepatan internet pada sistem anda dan share linknya bisa menggunakan perintah:
+speedtest-cli --share
+
+6. Untuk share link result nya dapat anda copy dan akses menggunakan browser
