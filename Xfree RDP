@@ -1,0 +1,3 @@
+apt install xfreerdp
+
+xfreerdp /u:username /p:password /w:1366 /h:768 /v:ipaddress /smart-sizing +auto-reconnect
