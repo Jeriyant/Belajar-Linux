@@ -1,0 +1,47 @@
+#Menambah User
+sudo adduser namauser
+
+#Melihat List atau Daftar User
+cat /etc/passwd
+
+#Melihat Daftar User Mudah
+cat /etc/passwd | grep -v 'nologin' | awk -F: '$3 >= 1000'
+
+#Melihat Daftar User Hanya Nama
+cat /etc/passwd | grep -v 'nologin' | awk -F: '$3 >= 1000 {print $1}'
+
+#Menghapus User Pengguna
+  
+  #Hanya Menghapus User Tidak Beserta Foldernya
+  userdel widarto
+  
+  #Menghapus User Beserta Folder dan Paksa Meskipun Sedang Login
+  userdel -rf namauser
+
+  #Mematikan User yang sedang Login
+  sudo killall -u namauser
+
+#Menampilan Grup User Linux
+group namauser
+
+#Menambahkan User ke Grup
+sudo usermod -a -G namagrup namauser
+
+#Menambahkan User yang Ada ke Beberapa Grup
+sudo usermod -a -G namagroup1,namagroup2 namauser
+
+#Menghapus user Dari Grup
+sudo gpasswd -d namauser namagroup
+
+#Membuat Grup baru di Linux
+sudo groupadd namagroup
+
+#Menghapus Grup di Linux
+sudo groupdel namagroup
+
+#Membuat user Baru dan Menetapkan Grup
+sudo useradd -g users -G group1,group2 namauser
+
+#Mengganti Password User dan Password Root
+sudo passwd namauser
+sudo passwd root
