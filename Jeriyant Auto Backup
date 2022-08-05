@@ -1,7 +1,7 @@
 1. Siapkan User&Password Beserta Alamat Ip ke Server
-IP : 192.168.4.252
+IP : 192.168.1.1
 User : root
-Pass : S3rver-DB
+Pass : password
 
 2. Cek Kunci RSA dengan Perintah Berikut
 ls -al ~/.ssh/id_*.pub
@@ -19,15 +19,15 @@ ssh-keygen -t rsa -b 2048
 #Muncul Pertanyaan Enter Saja Sampai Selesai
 
 3. Menyalin Kunci Publik untuk Mengaktifkan SSH Tanpa Password
-cat ~/.ssh/id_rsa.pub | ssh root@192.168.4.252 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh root@192.168.1.1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 
 ###Source : https://www.hostinger.co.id/tutorial/ssh-tanpa-password
 
 4. Uji Coba apakah ssh masih meminta password atau tidak
-ssh root@192.168.4.252
+ssh root@191.177.4.1
 
 5. Perintah Untuk Backup Data Menggunakan RSYNC silakan di test work atau tidaknya.
-rsync -avzhe ssh root@192.168.4.252:/tmp/test/ /home/jeriyant/FileTestBackup/
+rsync -avzhe ssh root@191.177.4.1:/home/20200429/ /home/it-cusj/Backup-DB/
 
 6. Edit file crontab /var/spool/cron/ dengan perintah crontab -e
 
@@ -42,6 +42,8 @@ rsync -avzhe ssh root@192.168.4.252:/tmp/test/ /home/jeriyant/FileTestBackup/
 Contoh:
 30 6 * * 1 reboot    = reboot setiap hari Senin pukul 06.30
 
+0 20 * * * rsync -avzhe ssh root@191.177.4.1:/home/20200429/ /home/it-cusj/Backup-DB/
+
 */1 * * * * rsync -avzhe ssh root@192.168.4.252:/tmp/test/ /home/jeriyant/FileTestBackup/
 */1 * * * * tar -cvpzf /home/jeriyant/FileTestBackup/test.tar.gz /home/jeriyant/FileTestBackup/cusj_database /home/jeriyant/FileTestBackup/cusj_database_sys
 */1 * * * * 
@@ -51,3 +53,11 @@ systemctl status cron
 
 8. Restart Crontab
 sudo service cron start
+
+rsync -avzh -e "ssh -p 22" root@192.168.1.1:/folder/asal/ /folder/tujuan/
+
+-a archive agar file dan folder yang disalin memiliki informasi yang sama dengan aslinya, Anda perlu menggunakan mode archive.
+-v verbose yang berfungsi untuk menunjukkan proses sinkronisasi
+-z compress Meng-compress data file pada saat transfer.
+-h Hasil dengan format yang dapat dibaca (human-readable format)
+-r rekursif Opsi yang memerintahkan perangkat untuk meng-copy subdirektori atau folder dari satu perangkat ke yang lain.
