@@ -13,7 +13,7 @@ cat /etc/passwd | grep -v 'nologin' | awk -F: '$3 >= 1000 {print $1}'
 #Menghapus User Pengguna
   
   #Hanya Menghapus User Tidak Beserta Foldernya
-  userdel widarto
+  userdel namauser
   
   #Menghapus User Beserta Folder dan Paksa Meskipun Sedang Login
   userdel -rf namauser
