@@ -61,3 +61,5 @@ rsync -avzh -e "ssh -p 22" root@192.168.1.1:/folder/asal/ /folder/tujuan/
 -z compress Meng-compress data file pada saat transfer.
 -h Hasil dengan format yang dapat dibaca (human-readable format)
 -r rekursif Opsi yang memerintahkan perangkat untuk meng-copy subdirektori atau folder dari satu perangkat ke yang lain.
+
+https://codepolitan.com/blog/memahami-perintah-perintah-crontab-paling-lengkap-59f69445130a0
