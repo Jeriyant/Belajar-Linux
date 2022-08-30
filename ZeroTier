@@ -1,0 +1,64 @@
+Cara Install Zerotier di Linux
+
+#Jalankan Perintah Berikut Untuk Install Zerotier
+curl -s https://install.zerotier.com | sudo bash
+
+#Perintah Untuk Membuat Zerotier meskipun Restart akan Otomatis Running
+systemctl enable zerotier-one.service
+
+#Perintah Untuk Mengkoneksikan Dengan Jaringan Zerotier
+zerotier-cli join c7c8172af14d359f
+
+#Perintah untuk Disconnect ZeroTier
+zerotier-cli leave 159924d630d61aed
+
+#Untuk Mengecek Network yang terhubung
+zerotier-cli listnetworks
+
+#Perintah Untuk Reconnect Zerotier
+systemctl restart zerotier-one.service
+
+#Cek Status Zerotier
+systemctl status zerotier-one.service
+
+Menjadikan STB Armbian Linux Sebagai Remote Gateway
+Routing Dari Zerotier Ke Jaringan Lokal
+
+1. Aktifkan IP Forwarding
+Gunakan Perintah dibawah ini Untuk Edit /etc/sysctl.conf Dengan net.ipv4.ip_forward.
+
+sysctl -w net.ipv4.ip_forward=1
+
+2. Cek Nama Interface LAN dan Zerotier
+ifconfig
+
+3. Mengatur Interface Jaringan
+
+PHY_IFACE=eth0
+
+ZT_IFACE=ztyou7ftg5
+
+### Nama Interface LAN dan Zerotier Cek Lewat Perintah ifconfig ###
+
+3. Menambah Rules Untuk iptables
+
+iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
+
+iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
+
+iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+4. Simpan Rules Iptables agar tidak Hilang saat reboot dengan perintah berikut
+
+apt update && apt install iptables-persistent
+
+bash -c iptables-save > /etc/iptables/rules.v4
+
+5. Buka Situs https://my.zerotier.com/ lalu pilih Network anda
+
+6. Pergi ke bagian Advanced-Managed Routes pada Add Router isikan seperti berikut
+Destination : 0.0.0.0/0
+(via) : 192.168.196.1 #Alamat IP STB Armbian Linux
+
+7. Test Akses Perangkat di Jaringan Lokal anda dari Jaringan Lain
+Test Bisa Menggunakan Ping atau akses WebUI Modem,AP,Mikrotik, dll.
