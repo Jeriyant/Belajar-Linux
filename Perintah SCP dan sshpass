@@ -15,6 +15,7 @@ scp -P 2291 /usr/bin/speedtest root@192.168.1.1:/home/jeriyant/Music
 # Mengirim Perintah SSH Dari Lokal ke Remote
 sshpass -p "password" ssh -p 2291 root@192.168.1.1 touch /root/hello.txt
 
+
 # Mengirim File dari Lokal Ke Remote
 sshpass -p "password" scp -P 2291 /local/directory/file.txt root@192.168.1.1:/remote/directory/file.txt
 
