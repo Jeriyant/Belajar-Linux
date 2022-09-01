@@ -1,5 +1,34 @@
-sshpass -p "*J4Y4-020*" scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
 
+# Menerima File Dari Remote Ke Lokal dengan membaca password ssh berbentuk file
 sshpass -f "/home/jeriyant/password" scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
 
+# Perintah SCP Menerima File
 scp -P2291 root@211.177.4.254:/usr/bin/speedtest /home/jeriyant/Music
+
+# Perintah SCP Mengirim File
+scp -P 2291 /usr/bin/speedtest root@192.168.1.1:/home/jeriyant/Music
+
+# Perintah SCP Menerima File
+scp -P 2291 /usr/bin/speedtest root@192.168.1.1:/home/jeriyant/Music
+
+
+# Mengirim Perintah SSH Dari Lokal ke Remote
+sshpass -p "password" ssh -p 2291 root@192.168.1.1 touch /root/hello.txt
+
+# Mengirim File dari Lokal Ke Remote
+sshpass -p "password" scp -P 2291 /local/directory/file.txt root@192.168.1.1:/remote/directory/file.txt
+
+# Menerima File dari Remote Ke Lokal
+sshpass -p "password" scp -P 2291 root@192.168.1.1:/remote/directory/file.txt /local/directory/
+
+
+# Mengirim Folder dari Lokal Ke Remote
+sshpass -p "password" scp -P 2291 -r /local/directory/ root@192.168.1.1:/remote/directory/
+
+# Menerima Folder dari Remote Ke Lokal
+sshpass -p "password" scp -P 2291 -r root@192.168.1.1:/remote/directory/ /local/directory/
+
+
+
+# Menyalin file dari Remote-A ke Remote-B
+sshpass -p "password" scp -P 2291 root@192.168.1.1:/remote/directory/file.txt root@192.168.2.1:/remote/directory/
