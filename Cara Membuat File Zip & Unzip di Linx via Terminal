@@ -1,0 +1,26 @@
+# Install
+sudo apt install zip unzip -y
+
+# Membuat File zip
+zip kompres.zip file1.txt file2.txt file3.txt
+
+# Kompres Folder Menjadi zip
+zip -r backup-documents.zip Documents
+
+# Membuat file zip dengan Password
+zip -r -e backup-documents.zip Documents
+
+# Memasukan File ke File zip
+# Memasukan file ke dalam file zip -u
+# Memindahkan file ke dalam file zip -m
+
+zip –u output.zip file-tambahan.txt
+
+# Cara Ekstrak/unzip
+unzip output.zip
+
+# Cara Ekstrak /Unzip ke Folder Lain
+unzip output.zip -d ~/Documents/output
+
+# Melihat Isi ZIP tanpa Harus Ekstrak/unzip
+unzip -l output.zip
