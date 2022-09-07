@@ -19,6 +19,9 @@ zerotier-cli leave 159924d630d61aed
 #Untuk Mengecek Network yang terhubung
 zerotier-cli listnetworks
 
+#Untuk Mengecek Status Zerotier
+zerotier-cli status
+
 #Perintah Untuk Reconnect Zerotier
 systemctl restart zerotier-one.service
 
