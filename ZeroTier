@@ -2,6 +2,10 @@ Cara Install Zerotier di Linux
 
 #Jalankan Perintah Berikut Untuk Install Zerotier
 curl -s https://install.zerotier.com | sudo bash
+apt update && apt install zerotier-one
+
+#Rubah Izin Folder ZeroTier /var/lib/zerotier-one
+chmod -R 777 /var/lib/zerotier-one
 
 #Perintah Untuk Membuat Zerotier meskipun Restart akan Otomatis Running
 systemctl enable zerotier-one.service
