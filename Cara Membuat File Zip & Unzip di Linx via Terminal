@@ -1,3 +1,12 @@
+##### TAR.XZ FILE ####
+
+# Ekstrak file tar.xz
+tar -xf archive.tar.xz
+tar -xvf archive.tar.xz
+
+
+
+##### ZIP FILE #####
 # Install
 sudo apt install zip unzip -y
 
