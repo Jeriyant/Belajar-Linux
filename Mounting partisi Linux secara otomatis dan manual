@@ -1,0 +1,16 @@
+# Cek Partisi
+fdisk -l
+
+# buat direktori dimana partisi tersebut akan dimounting
+mkdir /media/localdisk
+
+# perintah dibawah ini untuk melakukan mounting
+mount /dev/sda2 /media/localdisk
+
+# mounting secara otomatis
+sudo nano /etc/fstab
+
+# tambahkan baris berikut dipaling bawah dengan menggunakan pola <device> <location> <linux type> <options> <dump> <pass>
+/dev/sda2        /media/localdisk        ntfs-3g        defaults       0       0
+
+# Jika Sudah Silakan Reboot
