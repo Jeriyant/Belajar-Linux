@@ -1,0 +1,36 @@
+***Cara Install Mikhmon di STB Armbian***
+
+1. Install Web Server Apache:
+sudo apt update
+sudo apt-get -y install apache2
+
+2. Tes Apakah Apache Sudah Bisa Jalan
+Dengan Cara Mengetikan Alamat IP STB di Browser
+ 
+3. Install PHP dan Apache PHP Modul
+sudo apt-get -y install php libapache2-mod-php
+sudo service apache2 restart
+ 
+4. Cek apakah php dan apache sudah terhubung dengan dengan cara berikut:
+nano /var/www/html/info.php
+copykan script berikut:
+
+   <?php
+   phpinfo();
+
+Buka Browser dan Ketikan Alamat IP STB/info.php
+ 
+5. Hapus File Asal di "/var/www/html"
+Buka File Manager atau Bisa via WinScp
+Hapus semua file yang ada didalam folder "/var/www/html"
+Jika tidak bisa hapus gunakan perintah berikut untuk mengubah izin
+chmod -R 777 /var/www/html
+
+6. Upload Mikhmon di WebServer:
+Copy/Upload isi folder mikhmonv3-master ke folder "/var/www/html" dengan menggunakan aplikasi WinSCP.
+
+7. Masukan Perintah Berikut Untuk Memberi Izin Pada file Mikhmon
+chmod -R 777 /var/www/html
+chown -R www-data:www-data /var/www/html
+
+***Silakan Tes Mikhmon***
