@@ -1,0 +1,8 @@
+1. Menampilkan Hostname
+hostnamectl
+
+2. Mengganti Hostname
+sudo hostnamectl set-hostname Baramcity-Server
+
+3. Edit Hostname yang berada pada file /etc/hosts
+sudo nano /etc/hosts
