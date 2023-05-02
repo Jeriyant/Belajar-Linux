@@ -1,0 +1,32 @@
+SSH (Secure Shell) adalah sebuah protokol jaringan kriptografi untuk komunikasi data yang aman dalam melakukan remote terhadap sistem, seperti login ke sistem server, router atau perangkat jaringan lainnya.
+pada dasarnya ubuntu tidak akan memberi akses root secara default untuk bisa diakses melalui protokol ssh walaupun permitrootlogin sudah di assign “yes”, namun ada cara lain supaya user root dapat langsung login melalui ssh.
+
+# Sebelumnya install dulu SSH Servernya
+apt-get install ssh
+
+# jalankan perintah sudo -i untuk melakukan login spesific ke user sudoer
+ubuntu@ubuntu:~$ sudo -i
+[sudo] password for ubuntu: <masukan_password>
+
+# jalankan perintah sudo passwd untuk mengganti password *password yang dulu juga gpp
+root@ubuntu:~# sudo passwd
+Enter new UNIX password: <masukan_password>
+Retype new UNIX password: <masukan_password_sama>
+passwd: password updated successfully
+
+# kemudian ubah permitrootlogin pada /etc/ssh/sshd_config
+root@ubuntu:~# nano /etc/ssh/sshd_config 
+
+# ubah pada bagian Autentication -> permitrootlogin menjadi yes
+# Authentication:
+LoginGraceTime 120
+PermitRootLogin yes
+StrictModes yes
+
+# setelah itu restart service sshnya
+root@ubuntu:~# service ssh restart
+ssh stop/waiting
+ssh start/running, process 1295
+
+# kemudian setalah itu reboot ubuntu
+# Testing login ssh sebagai root
