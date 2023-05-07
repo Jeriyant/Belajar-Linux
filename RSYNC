@@ -1,0 +1,31 @@
+# rsync Kirim
+sshpass -p 'kata sandi' rsync -avzh -e 'ssh -p 22' /root/ssh-router-kc/ root@192.168.196.3:/root/ssh-router-kc/
+# rsync Terima
+sshpass -p 'kata sandi' rsync -avzh -e "ssh -p 22" root@192.168.196.3:/root/ssh-router-kc/ /root/ssh-router-kc/
+
+Script tersebut menggunakan perintah rsync dengan bantuan sshpass untuk melakukan sinkronisasi atau transfer file antara dua host yang terhubung melalui jaringan.
+Pada bagian "rsync Kirim", script tersebut melakukan pengiriman file dari host lokal ke host tujuan dengan perintah rsync. Berikut adalah penjelasan dari argumen yang digunakan:
+
+sshpass -p 'kata sandi': digunakan untuk memberikan password ssh secara otomatis, sehingga tidak perlu memasukkan password secara manual setiap kali melakukan transfer file. Parameter -p digunakan untuk memberikan password.
+rsync -avzh: merupakan perintah untuk melakukan sinkronisasi file dengan opsi sebagai berikut:
+-a: artinya rsync akan menjaga seluruh atribut file yang dikirimkan, seperti hak akses, waktu modifikasi, dan owner.
+-v: opsi verbose, artinya rsync akan menampilkan progress transfer file secara detail di layar.
+-z: opsi untuk melakukan kompresi data yang dikirimkan agar pengiriman lebih cepat dan efisien.
+-h: menampilkan output dalam format yang lebih mudah dibaca manusia (human-readable).
+-e 'ssh -p 22': digunakan untuk menentukan protokol dan port yang digunakan untuk melakukan transfer. Dalam hal ini, digunakan protokol ssh dan port 22.
+/root/ssh-router-kc/: merupakan path atau direktori yang akan dikirimkan.
+root@192.168.196.3:/root/ssh-router-kc/: merupakan alamat dan path tujuan dimana file akan dikirimkan. root@192.168.196.3 adalah alamat host tujuan, sedangkan /root/ssh-router-kc/ merupakan path tujuan dimana file akan disimpan.
+Pada bagian "rsync Terima", script tersebut melakukan penerimaan file dari host tujuan ke host lokal dengan perintah rsync. Berikut adalah penjelasan dari argumen yang digunakan:
+
+sshpass -p 'kata sandi': digunakan untuk memberikan password ssh secara otomatis, sehingga tidak perlu memasukkan password secara manual setiap kali melakukan transfer file. Parameter -p digunakan untuk memberikan password.
+rsync -avzh: merupakan perintah untuk melakukan sinkronisasi file dengan opsi yang sama dengan "rsync Kirim".
+-e "ssh -p 22": digunakan untuk menentukan protokol dan port yang digunakan untuk melakukan transfer. Dalam hal ini, digunakan protokol ssh dan port 22.
+root@192.168.196.3:/root/ssh-router-kc/: merupakan alamat dan path asal dimana file akan diterima. root@192.168.196.3 adalah alamat host asal, sedangkan /root/ssh-router-kc/ merupakan path asal dimana file akan diambil.
+/root/ssh-router-kc/: merupakan path atau direktori tempat file akan ditempatkan di host lokal.
+
+
+# RSYNC Folder SSH To Router All KC
+    # rsync Kirim
+* * * * * sshpass -p 'kata-sandi' rsync -avzh -e 'ssh -p 22' /root/ssh-router-kc/ root@192.168.196.3:/root/ssh-router-kc/
+    # rsync Terima
+* * * * * sshpass -p 'kata-sandi' rsync -avzh -e "ssh -p 22" root@192.168.196.3:/root/ssh-router-kc/ /root/ssh-router-kc/
