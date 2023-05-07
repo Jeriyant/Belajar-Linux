@@ -29,3 +29,28 @@ root@192.168.196.3:/root/ssh-router-kc/: merupakan alamat dan path asal dimana f
 * * * * * sshpass -p 'kata-sandi' rsync -avzh -e 'ssh -p 22' /root/ssh-router-kc/ root@192.168.196.3:/root/ssh-router-kc/
     # rsync Terima
 * * * * * sshpass -p 'kata-sandi' rsync -avzh -e "ssh -p 22" root@192.168.196.3:/root/ssh-router-kc/ /root/ssh-router-kc/
+
+bagaimana menerapkan atau menggunakan autentikasi kunci publik-privat (public-private key authentication)
+
+Untuk menerapkan atau menggunakan autentikasi kunci publik-privat (public-private key authentication) pada SSH, ikuti langkah-langkah berikut:
+Buatlah sepasang kunci publik dan privat pada host lokal dengan menggunakan perintah ssh-keygen. Pastikan untuk menyimpan kunci privat dengan aman dan tidak memberikan akses ke orang lain.
+
+ssh-keygen -t rsa
+
+Setelah itu, salin kunci publik ke host remote dengan menggunakan perintah ssh-copy-id. Masukkan kata sandi untuk akses SSH pada host remote.
+
+ssh-copy-id username@hostname
+
+Sekarang, konfigurasikan SSH pada host remote untuk menggunakan autentikasi kunci publik-privat. Buka file /etc/ssh/sshd_config dan pastikan bahwa opsi PubkeyAuthentication disetel sebagai yes. Kemudian, restart layanan SSH pada host remote.
+
+sudo nano /etc/ssh/sshd_config
+
+# Pastikan bahwa opsi berikut disetel sebagai yes
+PubkeyAuthentication yes
+
+# Restart layanan SSH
+sudo systemctl restart sshd
+Sekarang, ketika Anda melakukan koneksi SSH dari host lokal ke host remote, autentikasi kunci publik-privat akan digunakan secara otomatis dan Anda tidak perlu lagi memasukkan kata sandi SSH.
+
+ssh username@hostname
+Dengan menggunakan autentikasi kunci publik-privat, keamanan akses SSH akan meningkat karena tidak memerlukan pengiriman password secara plaintext melalui jaringan dan hanya dapat diakses oleh pemegang kunci privat yang terlindungi secara aman.
